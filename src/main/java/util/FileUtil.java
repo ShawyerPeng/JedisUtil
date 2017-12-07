@@ -84,7 +84,6 @@ public class FileUtil {
      * 读取动态配置文件的属性 (此配置文件可多次读取，适用于配置文件在程序中修改的情形); 如果返回 null, 则读取不成功！
      *
      * @param fileName 文件名 (classpath 路径内)
-     * @return
      */
     public static Properties loadVarProperties(String fileName) {
         logger.debug("loadVarProperties()-- start,[" + fileName + "]");
@@ -119,7 +118,6 @@ public class FileUtil {
      *
      * @param properties 新的配置属性
      * @param fileName   文件名 (classes 目录下)
-     * @return
      */
     public static boolean writeConfig(Properties properties, String fileName) {
         if (properties == null || StringUtils.isBlank(fileName)) {

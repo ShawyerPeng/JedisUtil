@@ -7,7 +7,7 @@ public class RedisConstants {
     /**
      * redis 默认配置 配置文件名
      */
-    public static final String DEFALUT_REDIS_FILE_NAME = "redis_config.properties";
+    public static final String DEFALUT_REDIS_FILE_NAME = "redis.properties";
 
     /**
      * redis 默认配置 端口

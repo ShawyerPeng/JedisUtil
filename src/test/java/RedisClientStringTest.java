@@ -13,6 +13,7 @@ public class RedisClientStringTest {
     private static Logger logger = LoggerFactory.getLogger(RedisClientStringTest.class);
 
     public static void main(String[] args) {
+        System.out.println("");
         logger.info("生成默认 RedisConfig 配置的 RedisClient 对象.");
         RedisClient redisClient = RedisClientFactory.getClient();
 

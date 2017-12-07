@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class JedisRedisClient implements RedisClient<Jedis> {
     private static Logger logger = LoggerFactory.getLogger(JedisRedisClient.class);
     private RedisConfig redisConfig = null;
-    private final Map<String, RedisMsgPubSubListener> redisMsgPubSubListenerMap = new ConcurrentHashMap<String, RedisMsgPubSubListener>();
+    private final Map<String, RedisMsgPubSubListener> redisMsgPubSubListenerMap = new ConcurrentHashMap<>();
 
     @Override
     public RedisClient<Jedis> setRedisConfig(RedisConfig redisConfig) {
@@ -277,7 +277,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public String lpop(String key) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not Null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not Null.");
         try {
             return jedis.lpop(key);
         } catch (Exception e) {
@@ -291,7 +291,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public String rpop(String key) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not Null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not Null.");
         try {
             return jedis.rpop(key);
         } catch (Exception e) {
@@ -305,7 +305,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public String popQueue(String key, IAtom atom) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not allow null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not allow null.");
 
         String dstkey = RedisConstants.DEFAULT_REDIS_TEMP_QUEUE_TIMEP_NAME + "-" + key;
 
@@ -341,7 +341,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public List<String> lrange(String key, long start, long end) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not Null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not Null.");
         try {
             jedis.incr(key);
             return jedis.lrange(key, start, end);
@@ -355,9 +355,9 @@ public class JedisRedisClient implements RedisClient<Jedis> {
 
     @Override
     public long setnx(String key, String value, int expiredSeconds) {
-        AssertUtil.isTrue(expiredSeconds > 0, "The expiredSeconds is not less then 0 .");
+        AssertUtil.isTrue(expiredSeconds > 0, "The expiredSeconds is not less then 0.");
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not allow null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not allow null.");
         try {
             int oldExpireSeconds = Integer.parseInt(jedis.ttl(key).toString());
             Transaction ts = jedis.multi();
@@ -376,7 +376,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public boolean subscribe(String channel, RedisListener redisListener) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not allow null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not allow null.");
 
         RedisMsgPubSubListener redisMsgPubSubListener = redisMsgPubSubListenerMap.get(channel);
 
@@ -403,7 +403,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public void publish(String channel, String message) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not Null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not Null.");
         try {
             jedis.publish(channel, message);
         } catch (Exception e) {
@@ -417,7 +417,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public long incr(String key) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not Null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not Null.");
         try {
             return jedis.incr(key);
         } catch (Exception e) {
@@ -431,7 +431,7 @@ public class JedisRedisClient implements RedisClient<Jedis> {
     @Override
     public long decr(String key) {
         Jedis jedis = getJedis();
-        AssertUtil.notNull(jedis, "The Jedis Object is Not Null .");
+        AssertUtil.notNull(jedis, "The Jedis Object is Not Null.");
         try {
             return jedis.decr(key);
         } catch (Exception e) {

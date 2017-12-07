@@ -25,3 +25,5 @@
 
 # 参考资料
 [cpthack/redis-client](https://github.com/cpthack/redis-client)  
+[WellJay/spring-data-redis-tools](https://github.com/WellJay/spring-data-redis-tools)  
+[wangshq/wsqRedisClient](https://github.com/wangshq/wsqRedisClient)  

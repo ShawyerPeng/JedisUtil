@@ -93,7 +93,7 @@ public class JedisPoolFactory {
         try {
             jedis = jedisPool.getResource();
         } catch (Exception e) {
-            logger.warn(" 获取指定配置的 redis 连接失败，Error:", e);
+            logger.warn("获取指定配置的 redis 连接失败，Error:", e);
         }
         if (jedis == null) {
             logger.warn("Cannot get Jedis object from the pool!");
